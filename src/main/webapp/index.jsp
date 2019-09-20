@@ -15,16 +15,15 @@
 	<!-- Navigation end -->
 
 	<!-- Content start -->
-	<div class="row justify-content-center align-items-center img"
-		style="height: 80vh; margin: 0;">
-		<div class="col-md-8 text-center text-light">
-			<h3 class="b">Welcome to charity application</h3>
-			<a href="donorRegister.jsp" class="btn btn-outline-light">Register
-				Here</a>
-		</div>
-	</div>
+		<%
+			String path = request.getParameter("pagePath");
+		if(path == null || "".equals(path.trim()))
+		{
+			path = "homePage.jsp";
+		}
+		%>
 	<!-- Content end -->
-
+		<jsp:include page="<%=path %>"></jsp:include>
 	<!-- External lib start -->
 	<script src="asserts/js/jquery-3.4.1.min.js"></script>
 	<script src="asserts/js/bootstrap.min.js"></script>

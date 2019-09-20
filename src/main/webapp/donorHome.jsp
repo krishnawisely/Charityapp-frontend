@@ -21,21 +21,22 @@
 	<jsp:include page="donorHeader.jsp"></jsp:include>
 	<!-- Navigation end -->
 	<!-- Content start -->
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="alert alert-success alert-dismissible fade show" id="loginStatus" style="display:none;margin: 0;" role="alert">
-		  		<strong id="userName"></strong>Login success!
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    <span aria-hidden="true">&times;</span>
-				  </button>
-			</div>
-        </div>
-    </div>
+   		<%
+ 			
+   			String path = request.getParameter("pagePath");
+   			if(path == null || "".equals(path.trim()))
+   			{
+   				path="donorHomePage.jsp";
+   			}
+   		%>
+   		
+   		<jsp:include page="<%=path %>"></jsp:include>
    	<!-- Content end -->
    	<!-- External lib start -->
     <script src="asserts/js/jquery-3.4.1.min.js"></script>
   	<script src="asserts/js/bootstrap.min.js"></script>
   	<script src="asserts/js/donorjs/donorHome.js"></script>
+  	<script src="asserts/js/donorjs/listRequest.js"></script>
   	<!-- External lib end -->
 </body>
 </html>

@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="adminHome.jsp">Home</a>
+                    <a class="nav-link" href="?pagePath=adminHomePage.jsp">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="fundRequest.jsp">Fund Request</a>
+                    <a class="nav-link" href="?pagePath=fundRequest.jsp">Fund Request</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>

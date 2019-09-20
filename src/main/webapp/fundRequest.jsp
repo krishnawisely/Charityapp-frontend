@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
-    <title>Document</title>
-    <script>
-  		/* Redirect page if user didn't login */
-		var data = localStorage.getItem('Logged_In_Admin');
-	 	var donorData = JSON.parse(data);
-		if(!donorData)
-		{
-			window.location.replace('adminLogin.jsp');
-		}
-  	</script>
-</head>
-<body>
-    <jsp:include page="adminHeader.jsp"></jsp:include>
-        <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
+<div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
             <div class="col-md-4 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5);border-radius:10px">
                 <h5 class="bg-warning text-light" style="padding:10px 0;margin-top:-20px;border-radius: 5px;box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5)">Fund Request</h5>
                 <div class="form-group">
@@ -71,22 +51,7 @@
                 <button onclick="fundRequest()" class="btn btn-outline-secondary">Send</button>
             </div>
         </div>
-    <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
     <script>
-		function logout()
-	  	{
-	  	  	console.log('logout success!');
-	  	  	localStorage.clear();
-	  	  	window.location.replace('adminLogin.jsp');
-	  	}
-	  	$(function(){
-	  		var data = localStorage.getItem('Logged_In_Admin');
-			var adminData = JSON.parse(data);
-			var id = JSON.stringify(adminData.id);
-			$('#dropdownId').html(adminData.name);
-			console.log(adminData);
-		  	});
         function fundRequest()
         {
 
@@ -112,6 +77,3 @@
             });
         }
     </script>
-
-</body>
-</html>

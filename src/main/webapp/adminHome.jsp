@@ -18,19 +18,18 @@
 </head>
 <body>
  <jsp:include page="adminHeader.jsp"></jsp:include>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-				<div class="alert alert-success alert-dismissible fade show" id="loginStatus" style="display:none;" role="alert">
-			  		Login success!
-					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					    <span aria-hidden="true">&times;</span>
-					  </button>
-				</div>
-            </div>
-        </div>
+        
+        <%
+        	String pagePath= request.getParameter("pagePath");
+        	if(pagePath == null || "".equals(pagePath.trim()))
+        	{
+        		pagePath = "adminHomePage.jsp";
+        	}
+        %>
+        <jsp:include page="<%=pagePath %>"></jsp:include>
     <script src="asserts/js/jquery-3.4.1.min.js"></script>
   	<script src="asserts/js/bootstrap.min.js"></script>
-    <script>
+     <script>
     $(function(){
     	$('#loginStatus').css({"display":"block"});
         });

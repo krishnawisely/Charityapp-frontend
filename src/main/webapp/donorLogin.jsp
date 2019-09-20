@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
-    <title>Donor Login</title>
-</head>
-<body class="bg-light">
-   <jsp:include page="header.jsp"></jsp:include>
+
     <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
         <div class="col-md-6 col-lg-3 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5);border-radius:10px">
            
@@ -45,8 +35,6 @@
             <p><a href="#">Forget password</a></p>
         </div>
     </div>
-   <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
     <script>
         function donorLogin()
         {
