@@ -42,7 +42,7 @@
             var password = $('#password').val();
             console.log('donor=>'+email+password);
             var formData = "email="+email+"&password="+password;
-            var url = "http://localhost:8080/CharityApplication/DonorLoginServlet?"+formData;
+            var url = "http://localhost:8080/Charityapp-api/DonorLoginServlet?"+formData;
             $.get(url,function(data){
 
                	var response = JSON.parse(data);

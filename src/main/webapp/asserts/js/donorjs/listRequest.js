@@ -18,14 +18,14 @@
 	  		 var donorData = JSON.parse(data);
 	  		 var donorId = donorData.id;
 			/* Get amount */
-	  		var amount = $("#amount").val();
+	  		var amount = $("#amount_" + fundRequestId).val();
 	  		 
 	  	  	console.log("fund_req_id=>"+fundRequestId);
 	  	  	console.log("donor_id=>"+donorId);
 	  		console.log("amount=>"+amount);
 	
 	  		var formData = "id="+donorId+"&fundRequestId="+fundRequestId+"&amount="+amount;
-	  		var url = "http://localhost:8080/CharityApplication/TransactionServlet?"+formData;
+	  		var url = "http://localhost:8080/Charityapp-api/TransactionServlet?"+formData;
 			/* Get response form servlet */
 	  		$.get(url,function(data){
 				console.log('transaction success!');
@@ -43,7 +43,7 @@
 	    	   
 	        var requestType = $("#requestType").val();
 	        var formData = "requestType="+requestType;
-	        var url = "http://localhost:8080/CharityApplication/ListFundRequestServlet?"+formData;
+	        var url = "http://localhost:8080/Charityapp-api/ListFundRequestServlet?"+formData;
 	        $.get(url,function(datas){
 	
 	        	
@@ -62,9 +62,10 @@
 	                content += '</td><td>';
 	                content += data.expireDate.day+"-"+ data.expireDate.month+"-"+data.expireDate.year;
 	                content += '</td><td>';
-	                content += '<input type="number" id="amount" class="form-control" placeholder="PayAmount"/>';
+	                content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="PayAmount"/>';
+	                
 	                content += '</td><td>';
-	                var click = "donate('"+ data.id + "')";
+	                var click = "donate('"+ data.id +"')";
 	                content += '<button class="btn btn-outline-success" onclick=' + click + '>Donate</button>';
 	                content += '</td></tr>';
 	            }

@@ -28,7 +28,7 @@
 						<th>Description</th>
 						<th>Amount</th>
 						<th>Expire Date</th>
-						<th>PayAmount</th>
+						<th>Pay Amount(Rs)</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -38,4 +38,5 @@
 			</table>
 		</div>
 	</div>
-	<!-- Content start -->
+
+	<!-- Content end -->

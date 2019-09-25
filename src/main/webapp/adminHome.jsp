@@ -12,7 +12,7 @@
 	 	var donorData = JSON.parse(data);
 		if(!donorData)
 		{
-			window.location.replace('adminLogin.jsp');
+			window.location.replace('index.jsp');
 		}
   	</script>
 </head>
@@ -27,7 +27,8 @@
         	}
         %>
         <jsp:include page="<%=pagePath %>"></jsp:include>
-    <script src="asserts/js/jquery-3.4.1.min.js"></script>
+    
+     <script src="asserts/js/jquery-3.4.1.min.js"></script>
   	<script src="asserts/js/bootstrap.min.js"></script>
      <script>
     $(function(){
@@ -37,7 +38,7 @@
 	  	{
 	  	  	console.log('logout success!');
 	  	  	localStorage.clear();
-	  	  	window.location.replace('adminLogin.jsp');
+	  	  	window.location.replace('index.jsp');
 	  	}
 	  	$(function(){
 	  		var data = localStorage.getItem('Logged_In_Admin');
@@ -48,5 +49,7 @@
 		  	});
 
     </script>
+    
+    	<script src="asserts/js/donorjs/raiseRequest.js" ></script>
 </body>
 </html>

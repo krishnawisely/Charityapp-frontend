@@ -14,6 +14,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?pagePath=adminLogin.jsp">Admin Login</a>
-                </li>
+               	</li>
         </div>
     </nav>

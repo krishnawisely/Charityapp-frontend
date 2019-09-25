@@ -1,6 +1,14 @@
 <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
             <div class="col-md-4 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5);border-radius:10px">
-                <h5 class="bg-warning text-light" style="padding:10px 0;margin-top:-20px;border-radius: 5px;box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5)">Fund Request</h5>
+                
+                 <div class="alert alert-success alert-dismissible fade show" id="fundStatus" style="display:none;margin: 0;" role="alert">
+		  			<strong id="userName"></strong>Request send successfully
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  	</button>
+				</div>
+                
+                <h5 class="bg-secondary text-light" style="padding:10px 0;margin-top:-20px;border-radius: 5px;box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5)">Fund Request</h5>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -70,10 +78,11 @@
             console.log("amount=>"+amount);
             console.log("date=>"+date);
             var formData = "id="+donorId+"&requestType="+requestType+"&description="+description+"&amount="+amount+"&date="+date;
-            var url = "http://localhost:8080/CharityApplication/FundRequestServlet?"+formData;
+            var url = "http://localhost:8080/Charityapp-api/FundRequestServlet?"+formData;
             $.get(url,function(data){
                 console.log(data)
                 console.log('fund request success!');
+                $('#fundStatus').css({"display":"block"});
             });
         }
     </script>

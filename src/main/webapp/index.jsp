@@ -27,6 +27,7 @@
 	<!-- External lib start -->
 	<script src="asserts/js/jquery-3.4.1.min.js"></script>
 	<script src="asserts/js/bootstrap.min.js"></script>
+	<script src="asserts/js/donorjs/donorRegister.js"></script>
 	<!-- External lib end -->
 
 </body>

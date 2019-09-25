@@ -12,7 +12,7 @@
 	 	var donorData = JSON.parse(data);
 		if(!donorData)
 		{
-			window.location.replace('donorLogin.jsp');
+			window.location.replace('index.jsp');
 		}
   	</script>
 </head>
@@ -28,8 +28,7 @@
    			{
    				path="donorHomePage.jsp";
    			}
-   		%>
-   		
+   		%> 		
    		<jsp:include page="<%=path %>"></jsp:include>
    	<!-- Content end -->
    	<!-- External lib start -->

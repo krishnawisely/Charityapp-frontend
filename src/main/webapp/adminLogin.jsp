@@ -40,8 +40,8 @@
             var password = $('#password').val();
             console.log('user=>'+email+password);
             var formData ="email="+email+"&password="+password;
-            var url="http://localhost:8080/CharityApplication/AdminLoginServlet?"+formData;
-            $.post(url,function(data){
+            var url="http://localhost:8080/Charityapp-api/AdminLoginServlet?"+formData;
+            $.get(url,function(data){
                 console.log(data);
                 var response = JSON.parse(data);
                 $('#err').html(response.errorMessage);
