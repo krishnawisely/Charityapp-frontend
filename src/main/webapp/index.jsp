@@ -6,6 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="asserts/css/bootstrap.min.css" />
 <link rel="stylesheet" href="asserts/css/style.css" />
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <title>CharityApp</title>
 </head>
 <body class="bg-light">

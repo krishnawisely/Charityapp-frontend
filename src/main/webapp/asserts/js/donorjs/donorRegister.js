@@ -27,7 +27,7 @@
             	alert(response.errorMessage);
             } else{
             	  console.log('register success!');
-                  window.location.replace('donorLogin.jsp');
+                  window.location.replace('index.jsp');
                }
             
          

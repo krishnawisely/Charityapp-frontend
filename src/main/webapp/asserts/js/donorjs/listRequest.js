@@ -4,13 +4,6 @@
 	  	 	var donorData = JSON.parse(data);
 	 			$('#dropdownId').html(donorData.name);
 	  	  	});
-  	  	/* User logout */
-	  	function logout()
-	  	{
-	  	  	console.log('logout success!');
-	  	  	localStorage.clear();
-	  	  	window.location.replace('donorLogin.jsp');
-	  	}
 	  	
 	  	function donate(fundRequestId){
 	  		/* Get donor details */
@@ -27,20 +20,29 @@
 	  		var formData = "id="+donorId+"&fundRequestId="+fundRequestId+"&amount="+amount;
 	  		var url = "http://localhost:8080/Charityapp-api/TransactionServlet?"+formData;
 			/* Get response form servlet */
-	  		$.get(url,function(data){
-				console.log('transaction success!');
-				 $(function(){
-				    	$('#transactionStatus').css({"display":"block"});
-				        });
-	  		});
+	  		if(amount > 0 && amount != null)
+	  			{
+			  		$.get(url,function(data){
+						console.log('transaction success!');
+						 $(function(){
+						    	$('#transactionStatus').css({"display":"block"});
+						    	$('#errorStatus').css({"display":"none"});
+						    	$('#responseMessage').html("Transaction success");
+						        });
+			  		});
 	  		
+	  			} 
+	  		else{
+	  			$('#errorStatus').css({"display":"block"});
+	  			$('#transactionStatus').css({"display":"none"});
+	  				$('#errorMessage').html("Invalid amount!");
+	  				console.log("Invalid amount!");
+	  			}
 	  	}
 	  	
 	  	function listRequest()
 	    {
-	
-			
-	    	   
+  
 	        var requestType = $("#requestType").val();
 	        var formData = "requestType="+requestType;
 	        var url = "http://localhost:8080/Charityapp-api/ListFundRequestServlet?"+formData;

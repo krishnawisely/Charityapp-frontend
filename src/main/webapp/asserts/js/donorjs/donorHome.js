@@ -7,6 +7,7 @@
 			$('#dropdownId').html(donorData.name);
 			$('#userName').html(donorData.name+"!");
          });
+     /* User logout */
   	function logout()
   	{
   	  	console.log('logout success!');

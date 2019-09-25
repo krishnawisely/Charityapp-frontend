@@ -31,7 +31,7 @@
                 </div>
             </div>
             <button onclick="donorLogin()" type="submit" class="btn btn-outline-secondary">Signin</button>
-            <p>Already haven't an account <a href="donorRegister.jsp">Click here</a>.</p>
+            <p>Haven't an account <a href="donorRegister.jsp">Click here</a>.</p>
             <p><a href="#">Forget password</a></p>
         </div>
     </div>
