@@ -57,7 +57,8 @@
                         <input type="text" name="expireDate" id="expireDate" class="form-control" placeholder="Expire date" required>
                     </div>
                 </div>
-                <button onclick="" class="btn btn-outline-secondary">Send</button>
+                <button onclick="" class="btn btn-outline-secondary">Submit</button>
+                <input type="reset" class="btn btn-outline-danger">
                 </form>
             </div>
         </div>

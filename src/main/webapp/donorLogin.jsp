@@ -30,8 +30,8 @@
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                 </div>
             </div>
-            <button onclick="donorLogin()" type="submit" class="btn btn-outline-secondary">Signin</button>
-            <p>Haven't an account <a href="donorRegister.jsp">Click here</a>.</p>
+            <button onclick="donorLogin()" type="submit" class="btn btn-outline-secondary">Sign in</button>
+            <p>New donor? <a href="?pagePath=donorRegister.jsp">Click here</a>.</p>
             <p><a href="#">Forget password</a></p>
         </div>
     </div>

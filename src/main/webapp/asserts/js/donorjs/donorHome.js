@@ -12,5 +12,5 @@
   	{
   	  	console.log('logout success!');
   	  	localStorage.clear();
-  	  	window.location.replace('index.jsp');
+  	  	window.location.replace('?pagePath=donorLogin.jsp');
   	}

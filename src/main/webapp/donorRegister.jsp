@@ -1,9 +1,23 @@
  <div class="row justify-content-center align-items-center" style="height: 80vh;margin:0;">
         <div class="col-md-6 col-lg-3 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5);border-radius:10px">
+            
+            <div class="alert alert-success alert-dismissible fade show" id="registerSuccess" style="display:none;margin: 0;" role="alert">
+		  		<i id="responseMessage"></i>
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+			</div>
+			
+			<div class="alert alert-error alert-dismissible fade show" id="registerFailure" style="display:none;margin: 0;" role="alert">
+		  		<i id="errorMessage"></i>
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+			</div>
                   
             <h5 class="text-secondary" style="padding: 10px 0">Donor Register</h5>
             
-            <!-- <form onsubmit="donorRegister()"> -->
+            <form onsubmit="donorRegister()">
                 <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -11,7 +25,7 @@
                                     Name
                                 </div>
                             </div>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Name"/>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required/>
                         </div>
                     </div>
                 <div class="form-group">
@@ -31,7 +45,7 @@
                                 Password
                             </div>
                         </div>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,7 +55,7 @@
                                     DOB
                                 </div>
                             </div>
-                            <input type="text" name="dob" id="dob" class="form-control"/>
+                            <input type="text" name="dob" id="dob" class="form-control" required/>
                         </div>
                     </div>
                 <div class="form-group">
@@ -57,8 +71,9 @@
                             <input type="radio" name="gender" value="female" id="female" class="form-control" required/>
                         </div>
                     </div>
-                <button onclick="donorRegister()" type="submit" class="btn btn-outline-secondary">Register</button>
-                <p>Already have an account <a href="donorLogin.jsp">Click here</a>.</p>
-            <!-- </form> -->
+                <button onclick="" type="submit" class="btn btn-outline-secondary">Register</button>
+                <input type="reset" class="btn btn-outline-danger"/>
+                <p>Already have an account <a href="?pagePath=donorLogin.jsp">Click here</a>.</p>
+            </form>
         </div>
     </div>

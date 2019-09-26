@@ -1,10 +1,10 @@
   $(function(){
-        console.log('this is jquery!');
         $('#dob').datepicker({
         	minDate:'',
         	maxDate:'-15Y',
         	dateFormat: 'yy-mm-dd'
         });
+        $('#registerFailure').css({'display':'block'});
     });
     function donorRegister()
     {
@@ -28,10 +28,12 @@
 
             if(response.errorMessage != null)
             {
-            	alert(response.errorMessage);
+            	$('#registerFailure').css({'display':'block'});
+            	$('#errorMessage').html('Register is not success!');
             } else{
-            	  console.log('register success!');
-                  window.location.replace('index.jsp');
+            	$('#registerSuccess').css({'display':'block'});
+              	$('#responseMessage').html('Register is success!');
+//                  window.location.replace('index.jsp');
                }
             
          
