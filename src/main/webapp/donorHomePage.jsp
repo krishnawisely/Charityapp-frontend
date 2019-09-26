@@ -6,5 +6,11 @@
 				    <span aria-hidden="true">&times;</span>
 				  </button>
 			</div>
+			
         </div>
     </div>
+    <div class="row justify-content-center align-items-center" style="height:80vh;margin:0;">
+    			<div class="col-md-5 text-center">
+				<img src="asserts/css/construction.gif" width="200px" height="200px" alt="underconstruction" />
+				</div>
+        	</div>
