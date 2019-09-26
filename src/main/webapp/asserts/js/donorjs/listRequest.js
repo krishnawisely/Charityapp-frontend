@@ -5,6 +5,8 @@
 	 			$('#dropdownId').html(donorData.name);
 	  	  	});
 	  	
+
+	  	
 	  	function donate(fundRequestId){
 	  		/* Get donor details */
 			var data = localStorage.getItem('Logged_In_Donor');
@@ -19,6 +21,9 @@
 	
 	  		var formData = "id="+donorId+"&fundRequestId="+fundRequestId+"&amount="+amount;
 	  		var url = "http://localhost:8080/Charityapp-api/TransactionServlet?"+formData;
+
+
+
 			/* Get response form servlet */
 	  		if(amount > 0 && amount != null)
 	  			{
@@ -46,6 +51,14 @@
 	        var requestType = $("#requestType").val();
 	        var formData = "requestType="+requestType;
 	        var url = "http://localhost:8080/Charityapp-api/ListFundRequestServlet?"+formData;
+	        
+//			Data table
+	  	  	$(document).ready( function () {
+	  	  	    $('#listRequest').DataTable({
+	  	  	    	"ajax":url
+	  	  	    });
+	  	  	} );
+	        
 	        $.get(url,function(datas){
 	
 	        	

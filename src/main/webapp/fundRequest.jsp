@@ -2,7 +2,14 @@
             <div class="col-md-4 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5);border-radius:10px">
                 
                  <div class="alert alert-success alert-dismissible fade show" id="fundStatus" style="display:none;margin: 0;" role="alert">
-		  			<strong id="userName"></strong>Request send successfully
+		  			<i id="successMsg"></i>
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  	</button>
+				</div>
+				
+				 <div class="alert alert-danger alert-dismissible fade show" id="errorStatus" style="display:none;margin: 0;" role="alert">
+		  			<strong id="errorMsg"></strong>
 				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  	</button>

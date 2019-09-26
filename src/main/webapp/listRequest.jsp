@@ -30,7 +30,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<table class="table">
+			<table id="listRequest">
 				<thead>
 					<tr>
 						<th>Request Type</th>

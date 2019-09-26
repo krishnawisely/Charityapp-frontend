@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+   
     <title>Donor Home</title>
   	<script>
   		/* Redirect page if user didn't login */
@@ -36,6 +38,8 @@
   	<script src="asserts/js/bootstrap.min.js"></script>
   	<script src="asserts/js/donorjs/donorHome.js"></script>
   	<script src="asserts/js/donorjs/listRequest.js"></script>
+	 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  	
   	<!-- External lib end -->
 </body>
 </html>
