@@ -41,7 +41,7 @@
                                     DOB
                                 </div>
                             </div>
-                            <input type="date" name="dob" id="dob" class="form-control"/>
+                            <input type="text" name="dob" id="dob" class="form-control"/>
                         </div>
                     </div>
                 <div class="form-group">

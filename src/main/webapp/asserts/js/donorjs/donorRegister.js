@@ -1,6 +1,10 @@
   $(function(){
         console.log('this is jquery!');
-        
+        $('#dob').datepicker({
+        	minDate:'',
+        	maxDate:'-15Y',
+        	dateFormat: 'yy-mm-dd'
+        });
     });
     function donorRegister()
     {
