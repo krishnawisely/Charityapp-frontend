@@ -53,38 +53,38 @@
 	        var url = "http://localhost:8080/Charityapp-api/ListFundRequestServlet?"+formData;
 	        
 //			Data table
-	  	  	$(document).ready( function () {
+	        $(document).ready( function () {
 	  	  	    $('#listRequest').DataTable({
-	  	  	    	"ajax":url
+	  	  	    	"ajax":data
 	  	  	    });
 	  	  	} );
+       
 	        
 	        $.get(url,function(datas){
 	
-	        	
-	        
-	            var requestData = JSON.parse(datas);
-	            var tbody = $('#requestTable');
-	            var content = "";
-	            for(data of requestData)
-	            {
-	            	content += '<tr><td>';
-	                content += data.requestType;
-	                content += '</td><td>';
-	                content += data.description;
-	                content += '</td><td>';
-	                content += data.amount
-	                content += '</td><td>';
-	                content += data.expireDate.day+"-"+ data.expireDate.month+"-"+data.expireDate.year;
-	                content += '</td><td>';
-	                content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="PayAmount"/>';
-	                
-	                content += '</td><td>';
-	                var click = "donate('"+ data.id +"')";
-	                content += '<button class="btn btn-outline-success" onclick=' + click + '>Donate</button>';
-	                content += '</td></tr>';
-	            }
-	            console.log("content=>"+content);
-	            tbody.html(content);
+	        	//$('#listRequest').css({'display':'block'});
+	        	 var requestData = JSON.parse(datas);
+		            var tbody = $('#requestTable');
+		            var content = "";
+		            for(data of requestData)
+		            {
+		            	content += '<tr><td>';
+		                content += data.requestType;
+		                content += '</td><td>';
+		                content += data.description;
+		                content += '</td><td>';
+		                content += data.amount
+		                content += '</td><td>';
+		                content += data.expireDate.day+"-"+ data.expireDate.month+"-"+data.expireDate.year;
+		                content += '</td><td>';
+		                content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="PayAmount"/>';
+		                
+		                content += '</td><td>';
+		                var click = "donate('"+ data.id +"')";
+		                content += '<button class="btn btn-outline-success" onclick=' + click + '>Donate</button>';
+		                content += '</td></tr>';
+		            }
+		            console.log("content=>"+content);
+		            tbody.html(content);
 	        });
 	    }

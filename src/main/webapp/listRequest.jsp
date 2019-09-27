@@ -1,15 +1,22 @@
 <!-- Content start -->
 	<div class="row justify-content-center">
 		<div class="col-md-4">
-			<label>Request Type</label> <select id="requestType"
-				class="form-control" onchange="listRequest()">
-				<option>--SELECT--</option>
-				<option value="EDUCATION">Education</option>
-				<option value="FOOD">Food</option>
-				<option value="MEDICAL">Medical</option>
-				<option value="AGRICULTURE">Agriculture</option>
-				<option value="OTHERS">Others</option>
-			</select>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-groupt-text">
+					Request Type
+				</div>
+			</div>
+			<select id="requestType"
+					class="form-control" onchange="listRequest()">
+					<option>--SELECT--</option>
+					<option value="EDUCATION">Education</option>
+					<option value="FOOD">Food</option>
+					<option value="MEDICAL">Medical</option>
+					<option value="AGRICULTURE">Agriculture</option>
+					<option value="OTHERS">Others</option>
+				</select>
+		</div>
 		</div>
 		<div class="w-100"></div>
 		<div class="col-md-8">
@@ -30,7 +37,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<table id="listRequest">
+			<table id="listRequest" class="table" style="">
 				<thead>
 					<tr>
 						<th>Request Type</th>
