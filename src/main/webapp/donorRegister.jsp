@@ -52,10 +52,11 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    DOB
+                                    DOB(Birth Date)
                                 </div>
                             </div>
                             <input type="text" name="dob" id="dob" class="form-control" required/>
+                            <div>Age should be above 15</div>
                         </div>
                     </div>
                 <div class="form-group">
