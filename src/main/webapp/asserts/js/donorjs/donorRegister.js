@@ -5,13 +5,13 @@
         	dateFormat: 'yy-mm-dd'
         });
         
-        $('#name').on("keyup", function(){
-        	let name =$('#name').val();
-        	if(typeof name == 'string'){
-        		alert("first letter shoud be string");
-        	}
-        	console.log('name=>'+name);
-        });
+//        $('#name').on("keyup", function(){
+//        	let name =$('#name').val();
+//        	if(typeof name == 'string'){
+//        		alert("first letter shoud be string");
+//        	}
+//        	console.log('name=>'+name);
+//        });
     });
   
     function donorRegister()

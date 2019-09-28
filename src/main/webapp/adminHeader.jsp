@@ -12,6 +12,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="?pagePath=fundRequest.jsp">Fund Request</a>
                 </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="?pagePath=donorList.jsp">List donor</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
