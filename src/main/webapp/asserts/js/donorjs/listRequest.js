@@ -51,13 +51,6 @@
 	        var requestType = $("#requestType").val();
 	        var formData = "requestType="+requestType;
 	        var url = "http://localhost:8080/Charityapp-api/ListFundRequestServlet?"+formData;
-	        
-//			Data table
-	        $(document).ready( function () {
-	  	  	    $('#listRequest').DataTable({
-	  	  	    	"ajax":data
-	  	  	    });
-	  	  	} );
        
 	        
 	        $.get(url,function(datas){
