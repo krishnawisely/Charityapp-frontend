@@ -43,17 +43,17 @@
             var url="http://localhost:8080/Charityapp-api/AdminLoginServlet?"+formData;
             $.get(url,function(data){
                 console.log(data);
-                //var response = JSON.parse(data);
+                var response = JSON.parse(data);
                	var resData = JSON.stringify(data);
                 $('#err').html(data.errorMessage);
                 $('#loginStatus').css({"display":"block"});
-                if(data.errorMessage != null)
+                if(response.errorMessage != null)
                 {
-                	$('#err').html(data.errorMessage);
+                	$('#err').html(response.errorMessage);
                 	$('#loginStatus').css({"display":"block"});
                 } else{
                 	 window.location.replace('adminHome.jsp');
-                     localStorage.setItem('Logged_In_Admin',resData);
+                     localStorage.setItem('Logged_In_Admin',data);
                     }
                
                 

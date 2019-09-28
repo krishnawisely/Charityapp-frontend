@@ -3,9 +3,9 @@ $(function(){
             let url = "http://localhost:8080/Charityapp-api/ListDonorServlet";
             $.get(url,(res)=>{
                 console.log(res);
-                // let resData = JSON.parse(res);
+                let resData = JSON.parse(res);
                 let donorList = "";
-                for(donor of res)
+                for(let donor of resData)
                 {
                     donorList += "<tr><td>"+donor.name+"</td>";
                     donorList += "<td>"+donor.email+"</td>";

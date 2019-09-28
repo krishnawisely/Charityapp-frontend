@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="asserts/css/bootstrap.min.css">
-   
+    <script src="asserts/js/jquery-3.4.1.min.js"></script>
+  	<script src="asserts/js/bootstrap.min.js"></script>
     <title>Donor Home</title>
   	<script>
   		/* Redirect page if user didn't login */
@@ -33,11 +34,10 @@
    		<jsp:include page="<%=path %>"></jsp:include>
    	<!-- Content end -->
    	<!-- External lib start -->
-    <script src="asserts/js/jquery-3.4.1.min.js"></script>
-  	<script src="asserts/js/bootstrap.min.js"></script>
+   
   	<script src="asserts/js/donorjs/donorHome.js"></script>
-  	<script src="asserts/js/donorjs/listRequest.js"></script>
-  	<script src="asserts/js/donorjs/listDonor.js"></script>
+  
+  	
   	
   	<!-- External lib end -->
 </body>

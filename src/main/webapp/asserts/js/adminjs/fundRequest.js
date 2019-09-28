@@ -12,8 +12,8 @@ function fundRequest()
 			event.preventDefault();
         	var data = localStorage.getItem('Logged_In_Admin');
 			var adminData = JSON.parse(data);
+			console.log(adminData);
 			var id = JSON.stringify(adminData.id);
-            
         	var donorId = id;
             var requestType = $('#requestType').val(); 
             var description = $('#description').val();

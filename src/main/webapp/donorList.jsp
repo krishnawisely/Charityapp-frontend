@@ -15,4 +15,5 @@
     </table>
     	</div>
     </div>
+    <script src="asserts/js/donorjs/listDonor.js"></script>
     
