@@ -48,6 +48,7 @@
 		  	$(function(){
 		  		var data = localStorage.getItem('Logged_In_Admin');
 				var adminData = JSON.parse(data);
+				//var adminData = data;
 				var id = JSON.stringify(adminData.id);
 				$('#dropdownId').html(adminData.name);
 				console.log(adminData);

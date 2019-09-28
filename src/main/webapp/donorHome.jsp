@@ -37,6 +37,7 @@
   	<script src="asserts/js/bootstrap.min.js"></script>
   	<script src="asserts/js/donorjs/donorHome.js"></script>
   	<script src="asserts/js/donorjs/listRequest.js"></script>
+  	<script src="asserts/js/donorjs/listDonor.js"></script>
   	
   	<!-- External lib end -->
 </body>

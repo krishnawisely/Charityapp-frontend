@@ -56,7 +56,8 @@
 	        $.get(url,function(datas){
 	
 	        	//$('#listRequest').css({'display':'block'});
-	        	 var requestData = JSON.parse(datas);
+	        	var requestData = datas;
+	        	 //var requestData = JSON.parse(datas);
 		            var tbody = $('#requestTable');
 		            var content = "";
 		            for(data of requestData)
