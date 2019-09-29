@@ -43,10 +43,12 @@
             console.log('donor=>'+email+password);
             var formData = "email="+email+"&password="+password;
             var url = "http://localhost:8080/Charityapp-api/DonorLoginServlet?"+formData;
-            $.get(url,function(data){
+            $.getJSON(url,function(data){
 
-               	var response = JSON.parse(data);
+               	//var response = JSON.parse(data);
+               	var response = data;
                	var responseData = JSON.stringify(data);
+               	console.log("response=>"+response);
                	//var response = data;
                 $('#err').html(response.errorMessage);
                 $('#loginStatus').css({"display":"block"});
@@ -58,7 +60,7 @@
 							
 							console.log('donor login success!');
 			                window.location.replace('donorHome.jsp');
-			                localStorage.setItem('Logged_In_Donor', data);
+			                localStorage.setItem('Logged_In_Donor', responseData);
                         }
                 
             });

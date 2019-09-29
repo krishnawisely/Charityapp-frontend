@@ -1,9 +1,10 @@
 $(function(){
             console.log('This is jquery!');
             let url = "http://localhost:8080/Charityapp-api/ListDonorServlet";
-            $.get(url,(res)=>{
+            $.getJSON(url,(res)=>{
                 console.log(res);
-                let resData = JSON.parse(res);
+                //let resData = JSON.parse(res);
+                let resData = res;
                 let donorList = "";
                 for(let donor of resData)
                 {

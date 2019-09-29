@@ -41,19 +41,19 @@
             console.log('user=>'+email+password);
             var formData ="email="+email+"&password="+password;
             var url="http://localhost:8080/Charityapp-api/AdminLoginServlet?"+formData;
-            $.get(url,function(data){
+            $.getJSON(url,function(data){
                 console.log(data);
-                var response = JSON.parse(data);
+                //var response = JSON.parse(data);
                	var resData = JSON.stringify(data);
                 $('#err').html(data.errorMessage);
                 $('#loginStatus').css({"display":"block"});
-                if(response.errorMessage != null)
+                if(data.errorMessage != null)
                 {
-                	$('#err').html(response.errorMessage);
+                	$('#err').html(data.errorMessage);
                 	$('#loginStatus').css({"display":"block"});
                 } else{
                 	 window.location.replace('adminHome.jsp');
-                     localStorage.setItem('Logged_In_Admin',data);
+                     localStorage.setItem('Logged_In_Admin',resData);
                     }
                
                 
