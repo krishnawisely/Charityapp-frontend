@@ -44,10 +44,26 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                              <form>
+                            
+                            <div class="alert alert-success alert-dismissible fade show" id="updateStatus" style="display:none;" role="alert">
+						  		<span id="updateMsg"></span>
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    <span aria-hidden="true">&times;</span>
+								  </button>
+							</div>
+                            
+                            <div class="alert alert-danger alert-dismissible fade show" id="errStatus" style="display:none;" role="alert">
+						  		<span id="errMsg"></span>
+								  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    <span aria-hidden="true">&times;</span>
+								  </button>
+							</div>
+                            
+                            
+                              <form id="updateInput">
                                 <div class="form-group">
-                                  <label for="request-id" class="col-form-label" style="visibility:hidden;">Id</label>
-                                  <input type="text" class="form-control" id="fundRequestId" style="visibility:hidden;">
+                                  <label for="request-id" class="col-form-label" style="display:none;">Id</label>
+                                  <input type="text" class="form-control" id="fundRequestId" style="display:none">
                                 </div>
                                 <div class="form-group">
                                   <label for="request-type" class="col-form-label">Request Type</label>
@@ -69,7 +85,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" onclick="updateFundRequest()">Update</button>
+                              <button type="button" class="btn btn-primary" id="updateBtn" onclick="updateFundRequest()">Update</button>
                             </div>
                           </div>
                         </div>
@@ -98,8 +114,7 @@
                     content +='<td>'+data.amount+'</td>';
                     content +='<td>'+data.expireDate.day+'-'+data.expireDate.month+'-'+data.expireDate.year+'</td>';
                     content +='<td>'
-                    +'<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick='+editBtn+'>Edit</button>'
-                    +'<button class="btn btn-outline-danger">Deactive</button>'
+                    +'<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick='+editBtn+'>Update</button>'
                     +'</td></tr>';
                 }
                 $('#listFundRequest').html(content);
@@ -160,6 +175,19 @@
             console.log(apiUrl+formData);
             $.get(apiUrl+formData,(res)=>{
                 console.log(res);
+                if(res.isFundUpdated)
+                {
+                	$('#errStatus').css({'display':'none'});
+                    $('#updateStatus').css({'display':'block'});
+                    $('#updateMsg').html('Update Success');
+                    $('#updateInput').css({'display':'none'});
+                    $('#updateBtn').prop('disabled',true);
+                } else{
+                	$('#updateStatus').css({'display':'none'});
+                	$('#errStatus').css({'display':'block'});
+                    $('#errMsg').html('Update failed');
+                    $('#updateBtn').prop('disabled',false);
+                    }
             });
         }
     </script>

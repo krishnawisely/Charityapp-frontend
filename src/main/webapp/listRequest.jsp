@@ -3,19 +3,22 @@
 		<div class="col-md-4">
 		<div class="form-group">
 			<div class="input-group">
-				<div class="input-groupt-text">
-					Request Type
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						Request Type
+					</div>
 				</div>
+			
+				<select id="requestType"
+						class="form-control" onchange="listRequest()">
+						<option>--SELECT--</option>
+						<option value="EDUCATION">Education</option>
+						<option value="FOOD">Food</option>
+						<option value="MEDICAL">Medical</option>
+						<option value="AGRICULTURE">Agriculture</option>
+						<option value="OTHERS">Others</option>
+					</select>
 			</div>
-			<select id="requestType"
-					class="form-control" onchange="listRequest()">
-					<option>--SELECT--</option>
-					<option value="EDUCATION">Education</option>
-					<option value="FOOD">Food</option>
-					<option value="MEDICAL">Medical</option>
-					<option value="AGRICULTURE">Agriculture</option>
-					<option value="OTHERS">Others</option>
-				</select>
 		</div>
 		</div>
 		<div class="w-100"></div>

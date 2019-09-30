@@ -9,6 +9,7 @@
 			</div>
             
             <h5 class="text-secondary" style="padding: 10px 0">Admin Login</h5>
+            <form onsubmit="adminLogin()">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -29,13 +30,15 @@
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                 </div>
             </div>
-            <button onclick="adminLogin()" type="submit" class="btn btn-outline-secondary">Login</button>
+            <button onclick="" type="submit" class="btn btn-outline-secondary">Login</button>
             <p><a href="#">Forget password</a></p>
+            </form>
         </div>
     </div>
     <script>
         function adminLogin()
         {
+            event.preventDefault();
             var email = $('#email').val();
             var password = $('#password').val();
             console.log('user=>'+email+password);

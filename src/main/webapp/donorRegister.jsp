@@ -27,6 +27,7 @@
                             </div>
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" required/>
                         </div>
+                        <p class="errorMsgName"></p>
                     </div>
                 <div class="form-group">
                     <div class="input-group">
@@ -47,17 +48,18 @@
                         </div>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
                     </div>
+                     <p class="errorPassword"></p>
                 </div>
                 <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    DOB(Birth Date)
+                                    Birth Date
                                 </div>
                             </div>
                             <input type="text" name="dob" id="dob" class="form-control" required/>
-                            <div>Age should be above 15</div>
                         </div>
+                        <p class="errorMsgDate"></p>
                     </div>
                 <div class="form-group">
                         <div class="input-group">
@@ -66,10 +68,11 @@
                                     Gender
                                 </div>
                             </div>
-                            <label for="">Male</label>
-                            <input type="radio" name="gender" value="male" id="male" class="form-control" required/>
-                            <label for="">Female</label>
-                            <input type="radio" name="gender" value="female" id="female" class="form-control" required/>
+                           <select id="gender" class="form-control">
+                           	<option value="">--SELECT--</option>
+                           	<option value="MALE">Male</option>
+                           	<option value="FEMALe">Female</option>
+                           </select>
                         </div>
                     </div>
                 <button onclick="" type="submit" class="btn btn-outline-secondary">Register</button>

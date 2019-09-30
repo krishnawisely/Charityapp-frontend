@@ -5,8 +5,8 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Date of birth</th>
                 <th>Gender</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody id="donorList">
