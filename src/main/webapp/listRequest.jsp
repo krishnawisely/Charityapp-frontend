@@ -1,6 +1,11 @@
 <!-- Content start -->
 	<div class="row justify-content-center">
+	<div class="col-md-8 text-center">
+		<h3 class="text-secondary" style="border-bootm:2px solid black;">Contribute</h3>
+	</div>
+	<div class="w-100"></div>
 		<div class="col-md-4">
+		
 		<div class="form-group">
 			<div class="input-group">
 				<div class="input-group-prepend">
@@ -9,6 +14,8 @@
 					</div>
 				</div>
 			
+				
+			</h3>
 				<select id="requestType"
 						class="form-control" onchange="listRequest()">
 						<option>--SELECT--</option>
@@ -45,9 +52,9 @@
 					<tr>
 						<th>Request Type</th>
 						<th>Description</th>
-						<th>Amount</th>
-						<th>Expire Date</th>
-						<th>Pay Amount(Rs)</th>
+						<th>Amount(Rs)</th>
+						<th>Expiry Date</th>
+						<th>Contribute(Rs)</th>
 						<th>Action</th>
 					</tr>
 				</thead>

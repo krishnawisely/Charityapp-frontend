@@ -17,7 +17,7 @@
                   
             <h5 class="text-secondary" style="padding: 10px 0">Donor Register</h5>
             
-            <form onsubmit="donorRegister()">
+            <form onsubmit="donorRegister()" name="donorRegister">
                 <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -38,6 +38,7 @@
                         </div>
                         <input type="email" name="email" id="email" class="form-control" placeholder="Email" required/>
                     </div>
+                    <p class="errorEmail"></p>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
@@ -81,3 +82,4 @@
             </form>
         </div>
     </div>
+   <script src="asserts/js/donorjs/donorRegister.js"></script>

@@ -1,4 +1,8 @@
     <div class="row justify-content-center" style="margin:0;">
+    <div class="col-md-8 text-center">
+		<h3 class="text-secondary" style="border-bootm:2px solid black;">Update Fund Request</h3>
+	</div>
+	<div class="w-100"></div>
         <div class="col-md-8">
                 <div class="form-group">
                         <div class="input-group">
@@ -20,9 +24,9 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>requestType</th>
+                                <th>Request Type</th>
                                 <th>Description</th>
-                                <th>Amount</th>
+                                <th>Amount<strong>(Rs)</strong></th>
                                 <th>Expire Date</th>
                                 <th>Action</th>
                             </tr>
@@ -102,7 +106,7 @@
             var fundRequestType = $('#fundRequestType').val();
             console.log("fund=>"+fundRequestType);
             let formData = "ListFundRequestServlet?requestType="+fundRequestType;
-            $.get(apiUrl+formData,(res)=>{
+            $.getJSON(apiUrl+formData,(res)=>{
                 console.log(apiUrl+formData);
                 console.log(res);
                 let content = '';
@@ -153,6 +157,10 @@
                         maxDate: '+1Y',
                         dateFormat: 'yy-mm-dd'
                     });
+                    $('#updateInput').css({'display':'block'});
+                    $('#updateStatus').css({'display':'none'});
+                    $('#errStatus').css({'display':'none'});
+                    $('#updateBtn').prop('disabled',false);
                 })
             })
         }
@@ -173,8 +181,9 @@
             console.log("expireDate=>"+requestType);
             var formData = "UpdateFundRequestServlet?requestType="+requestType+"&description="+description+"&expireDate="+expireDate+"&amount="+amount+"&id="+id;
             console.log(apiUrl+formData);
-            $.get(apiUrl+formData,(res)=>{
+            $.getJSON(apiUrl+formData,(res)=>{
                 console.log(res);
+                
                 if(res.isFundUpdated)
                 {
                 	$('#errStatus').css({'display':'none'});
@@ -186,6 +195,7 @@
                 	$('#updateStatus').css({'display':'none'});
                 	$('#errStatus').css({'display':'block'});
                     $('#errMsg').html('Update failed');
+                    $('#updateInput').css({'display':'block'});
                     $('#updateBtn').prop('disabled',false);
                     }
             });

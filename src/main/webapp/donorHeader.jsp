@@ -10,7 +10,7 @@
                     <a class="nav-link" href="?pagePath=donorHomePage.jsp">Home</a>
                 </li>
                  <li class="nav-item active">
-                    <a class="nav-link" href="?pagePath=listRequest.jsp">List Request</a>
+                    <a class="nav-link" href="?pagePath=listRequest.jsp">Contribute</a>
                 </li>
               
                 <li class="nav-item dropdown">

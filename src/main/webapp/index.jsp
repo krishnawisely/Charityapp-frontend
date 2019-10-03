@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="asserts/css/jquery-ui.min.css">
 <link rel="stylesheet" href="asserts/css/jquery-ui.theme.min.css">
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- External lib start -->
+	<script src="asserts/js/jquery-3.4.1.min.js"></script>
+	<script src="asserts/js/bootstrap.min.js"></script>
+	<script src="asserts/js/jquery-ui.min.js"></script>
+	 
+	<!-- External lib end -->
 <title>CharityApp</title>
 </head>
 <body class="bg-light">
@@ -28,13 +34,7 @@
 		%>
 	<!-- Content end -->
 		<jsp:include page="<%=path %>"></jsp:include>
-	<!-- External lib start -->
-	<script src="asserts/js/jquery-3.4.1.min.js"></script>
-	<script src="asserts/js/bootstrap.min.js"></script>
-	<script src="asserts/js/jquery-ui.min.js"></script>
-	<script src="asserts/js/donorjs/donorRegister.js"></script>
-
-	<!-- External lib end -->
+	
 
 </body>
 </html>

@@ -5,78 +5,142 @@
         	maxDate:'-15Y',
         	dateFormat: 'yy-mm-dd'
         });
+                
+//        let userName = $('#name').val();
+//        let email = $('#email').val();
+//        let password = $('#password').val();
+//        let dateOfBirth = $('#dob').val();
+//        let gender = $('#gender').val();
         
-//        $('#name').on("keyup", function(){
-//        	let name =$('#name').val();
-//        	if(typeof name == 'string'){
-//        		alert("first letter shoud be string");
-//        	}
-//        	console.log('name=>'+name);
-//        });
+//        console.log("name=>"+userName);
         
-        let userName = $('#name').val();
-        let email = $('#email').val();
-        let password = $('#password').val();
-        let dateOfBirth = $('#dob').val();
-        let gender = $('#gender').val();
+        /* Disabled submit button */
+        $(':input[type="submit"]').prop('disabled',true);
         
-        console.log("name=>"+userName);
+        //Form validation
+        function checkform()
+        {
+//        	console.log("outside form");
+            var form = document.forms["donorRegister"].elements;
+            var cansubmit = true;
+//            console.log(form.length - 2);
+            for (var i = 0; i < 5; i++) {
+                if (form[i].value.length == 0) 
+                	{
+                		cansubmit = false;
+                	}
+            }
+
+            if (cansubmit) {
+            	$(':input[type="submit"]').prop('disabled',!cansubmit);
+//            	console.log("inside form");
+            } 
+        }
         
-       /* Disabled submit button */
-//        $(':input[type="submit"]').prop('disabled',true);
         
         /** User name validation **/
         $('#name').css({'border':'1px solid #ced4da'});
             $(function(){
                 $('#name').on("keyup",()=>{
-                var name = $('#name').val();
-                console.log("name=>"+name);
-                var regex = /[0-9]/g;
-                console.log("regex=>"+name.match(regex));
-                if(name.match(regex))
+                let name = $('#name').val();
+                let email = $('#email').val();
+//                console.log("name=>"+name);
+                var regex = /[a-zA-Z]/g;
+//                console.log("regex=>"+name.match(regex));
+                if(!name.match(regex))
                 {
                     $('#name').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
-                    $('.errorMsgName').html('Name should be [a-zA-Z]!');
-                    $('.errorMsgName').css({'color':'red'});
-                   
+                    $('.errorMsgName').html('Name should be alphabetic!');
+                    $('.errorMsgName').css({'color':'red','font-size':'13px'}); 
+                    /* Disabled submit button */
+                    $(':input[type="submit"]').prop('disabled',true);
+                    
                 } else{
                     $('#name').css({'box-shadow':'0 0 5px rgba(0, 0, 0, 0)'});
                     $('.errorMsgName').html('');
+                    
+//                  Form validation
+                    checkform();
                    
                 }
+//                console.log("top of function");
+
+                $('#gender').on('change',function(){
+                	var gender = $('#gender').val();
+                	if(gender == null)
+                		{
+                			$('#gender').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
+                			$(':input[type="submit"]').prop('disabled',true);
+                		}else{
+                			$('#gender').css({'box-shadow':'0 0 5px rgba(0, 0, 0, 0)'});
+                			checkform();
+                		}
+                });
                 
-                /* Check any input field is epty or not */
-                if(userName == '' || email == '' || password == '' || dob == '' || gender == '')
-	        	{
-//	        		$(':input[type="submit"]').prop('disabled',true);
-	        	} else{
-	        		$(':input[type="submit"]').prop('disabled',false);
-	        	}
-                
+             
             });
             });   
             
             
             /** Password validation **/
-            $('#password').css({'border':'1px solid gray'});
+            $('#password').css({'border':'1px solid #ced4da'});
                 $(function(){
                     $('#password').on("keyup",()=>{
                     var password = $('#password').val();
-                    console.log("password=>"+password);
+//                    console.log("password=>"+password);
                     var regex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
-                    console.log("regex=>"+password.match(regex));
+//                    console.log("regex=>"+password.match(regex));
                     if(password.match(regex) == null)
                     {
                         $('#password').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
-                        $('.errorPassword').html('Invalid  password');
-                        $('.errorPassword').css({'color':'red'});
+                        $('.errorPassword').html('password length(8) and alphanumeric');
+                        $('.errorPassword').css({'color':'red','font-size':'13px'}); 
+                        /* Disabled submit button */
+                        $(':input[type="submit"]').prop('disabled',true);
+                    
                     } else{
                         $('#password').css({'box-shadow':'0 0 5px rgba(0, 0, 0, 0)'});
                         $('.errorPassword').html('');
-                    
+//                      Form validation
+                        checkform();
                     }
+
                 });
                 });   
+                
+//                $('#gender').change(function(){
+//                	var gender = $('#gender').val();
+//                		console.log('this is gender');
+//                		console.log('userName=>'+userName+"email=>"+email+"password=>"+password+"dob=>"+dob+"gender=>"+gender);
+//                })
+                
+                /** Email validation **/
+                $('#email').css({'border':'1px solid #ced4da'});
+                    $(function(){
+                        $('#email').on("keyup",()=>{
+                        var email = $('#email').val();
+//                        console.log("email=>"+email);
+                        var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+//                        console.log("regex=>"+password.match(regex));
+                        if(email.match(regex) == null)
+                        {
+                            $('#email').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
+                            $('.errorEmail').html('Invalid email id');
+                            $('.errorEmail').css({'color':'red','font-size':'13px'}); 
+                            /* Disabled submit button */
+                            $(':input[type="submit"]').prop('disabled',true);
+                       
+
+                        } else{
+                            $('#email').css({'box-shadow':'0 0 5px rgba(0, 0, 0, 0)'});
+                            $('.errorEmail').html('');
+                            
+//                          Form validation
+                            checkform();
+                        }   
+                       
+                    });
+                    });   
             
             
             /** Date validation **/
@@ -84,27 +148,26 @@
                 $(function(){
                     $('#dob').on("keyup",()=>{
                     var dob = $('#dob').val();
-                    console.log("dob=>"+dob);
+//                    console.log("dob=>"+dob);
                     var regex = /^(\d{4})-(\d{2})-(\d{2})$/;
-                    console.log("regex=>"+dob.match(regex));
-                    if(!dob.match(regex))
+//                    console.log("regex=>"+dob.match(regex));                    
+                    if(dob.match(regex) == null)
                     {
                         $('#dob').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
                         $('.errorMsgDate').html('Date format should be [YYYY-MM-DD]!');
+                        $('.errorMsgDate').css({'color':'red','font-size':'13px'}); 
+                        /* Disabled submit button */
+                        $(':input[type="submit"]').prop('disabled',true);
+                    
                     } else{
                         $('#dob').css({'box-shadow':'0 0 5px rgba(0, 0, 0, 0)'});
                         $('.errorMsgDate').html('');
+//                      Form validation
+                        checkform();
                     }
-                    
-                    /* Check any input field is epty or not */
-                    if(userName == '' || email == '' || password == '' || dob == '' || gender == '')
-    	        	{
-//    	        		$(':input[type="submit"]').prop('disabled',true);
-    	        	} else{
-    	        		$(':input[type="submit"]').prop('disabled',false);
-    	        	}
                 });
-                });      
+                });    
+            
             
     });
   
@@ -134,7 +197,5 @@
               	$('#responseMessage').html('Register is success!');
 //                  window.location.replace('index.jsp');
                }
-            
-         
         });
     }

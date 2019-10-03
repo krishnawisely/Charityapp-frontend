@@ -31,7 +31,7 @@
                 </div>
             </div>
             <button onclick="" type="submit" class="btn btn-outline-secondary">Login</button>
-            <p><a href="#">Forget password</a></p>
+            <p><a href="#">Forgot Password</a></p>
             </form>
         </div>
     </div>

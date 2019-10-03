@@ -10,7 +10,17 @@
         </div>
     </div>
     <div class="row justify-content-center align-items-center" style="height:80vh;margin:0;">
-    			<div class="col-md-5 text-center">
-				<img src="asserts/css/construction.gif" width="200px" height="200px" alt="underconstruction" />
+    			<div class="col-md-3 text-center">			
+				<div class="card" style="width: 18rem;">
+				<img src="asserts/css/donations.jpg" class="card-img-top" alt="Contribute">
+				  <div class="card-body">
+				    <h5 class="card-title">Contribute</h5>
+				    
+				    <p class="card-text">Contribute some amount who want help</p>
+				    <a class="btn btn-outline-primary" href="?pagePath=listRequest.jsp">Go To</a>
+				    
+				  </div>
 				</div>
-        	</div>
+				
+				</div>
+     	</div>

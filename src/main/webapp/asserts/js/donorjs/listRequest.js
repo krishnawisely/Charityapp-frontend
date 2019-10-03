@@ -28,7 +28,7 @@
 	  		if(amount > 0 && amount != null)
 	  			{
 			  		$.get(url,function(data){
-						console.log('transaction success!');
+						console.log('Donate success!');
 						 $(function(){
 						    	$('#transactionStatus').css({"display":"block"});
 						    	$('#errorStatus').css({"display":"none"});
@@ -70,7 +70,7 @@
 		                content += '</td><td>';
 		                content += data.expireDate.day+"-"+ data.expireDate.month+"-"+data.expireDate.year;
 		                content += '</td><td>';
-		                content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="PayAmount"/>';
+		                content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="Enter amount"/>';
 		                
 		                content += '</td><td>';
 		                var click = "donate('"+ data.id +"')";

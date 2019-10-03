@@ -32,7 +32,7 @@
             </div>
             <button onclick="donorLogin()" type="submit" class="btn btn-outline-secondary">Sign in</button>
             <p>New donor? <a href="?pagePath=donorRegister.jsp">Click here</a>.</p>
-            <p><a href="#">Forget password</a></p>
+            <p><a href="#">Forgot Password</a></p>
         </div>
     </div>
     <script>

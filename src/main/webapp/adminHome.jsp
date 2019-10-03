@@ -11,7 +11,7 @@
      <script src="asserts/js/jquery-3.4.1.min.js"></script>
   	<script src="asserts/js/bootstrap.min.js"></script>
   	<script src="asserts/js/jquery-ui.min.js"></script>
-    <title>Document</title>
+    <title>Admin home</title>
     <script>
   		/* Redirect page if user didn't login */
 		var data = localStorage.getItem('Logged_In_Admin');
