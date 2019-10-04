@@ -17,7 +17,7 @@
                   
             <h5 class="text-secondary" style="padding: 10px 0">Donor Register</h5>
             
-            <form onsubmit="donorRegister()" name="donorRegister">
+            <form onsubmit="donorRegister()" name="donorRegister1">
                 <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -76,7 +76,7 @@
                            </select>
                         </div>
                     </div>
-                <button onclick="" type="submit" class="btn btn-outline-secondary">Register</button>
+                <button type="submit" class="btn btn-outline-secondary">Register</button>
                 <input type="reset" class="btn btn-outline-danger"/>
                 <p>Already have an account <a href="?pagePath=donorLogin.jsp">Click here</a>.</p>
             </form>

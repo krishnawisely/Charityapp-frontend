@@ -21,7 +21,7 @@
         function checkform()
         {
 //        	console.log("outside form");
-            var form = document.forms["donorRegister"].elements;
+            var form = document.forms["donorRegister1"].elements;
             var cansubmit = true;
 //            console.log(form.length - 2);
             for (var i = 0; i < 5; i++) {
@@ -45,12 +45,12 @@
                 let name = $('#name').val();
                 let email = $('#email').val();
 //                console.log("name=>"+name);
-                var regex = /[a-zA-Z]/g;
+                var regex = /[a-zA-Z]{6}/g;
 //                console.log("regex=>"+name.match(regex));
                 if(!name.match(regex))
                 {
                     $('#name').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
-                    $('.errorMsgName').html('Name should be alphabetic!');
+                    $('.errorMsgName').html('Name should be alphabetic and min length 6!');
                     $('.errorMsgName').css({'color':'red','font-size':'13px'}); 
                     /* Disabled submit button */
                     $(':input[type="submit"]').prop('disabled',true);
@@ -122,7 +122,7 @@
 //                        console.log("email=>"+email);
                         var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 //                        console.log("regex=>"+password.match(regex));
-                        if(email.match(regex) == null)
+                        if(!email.match(regex))
                         {
                             $('#email').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
                             $('.errorEmail').html('Invalid email id');
@@ -195,7 +195,6 @@
             	$('#registerFailure').css({'display':'none'});
             	$('#registerSuccess').css({'display':'block'});
               	$('#responseMessage').html('Register is success!');
-//                  window.location.replace('index.jsp');
                }
         });
     }
