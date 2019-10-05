@@ -5,14 +5,6 @@
         	maxDate:'-15Y',
         	dateFormat: 'yy-mm-dd'
         });
-                
-//        let userName = $('#name').val();
-//        let email = $('#email').val();
-//        let password = $('#password').val();
-//        let dateOfBirth = $('#dob').val();
-//        let gender = $('#gender').val();
-        
-//        console.log("name=>"+userName);
         
         /* Disabled submit button */
         $(':input[type="submit"]').prop('disabled',true);
@@ -20,7 +12,6 @@
         //Form validation
         function checkform()
         {
-//        	console.log("outside form");
             var form = document.forms["donorRegister1"].elements;
             var cansubmit = true;
 //            console.log(form.length - 2);
@@ -41,16 +32,16 @@
         /** User name validation **/
         $('#name').css({'border':'1px solid #ced4da'});
             $(function(){
-                $('#name').on("keyup",()=>{
+                $('#name').on("focusout",()=>{
                 let name = $('#name').val();
                 let email = $('#email').val();
 //                console.log("name=>"+name);
-                var regex = /[a-zA-Z]{6}/g;
+                var regex = /[a-zA-Z\s]{3,}/g;
 //                console.log("regex=>"+name.match(regex));
                 if(!name.match(regex))
                 {
                     $('#name').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
-                    $('.errorMsgName').html('Name should be alphabetic and min length 6!');
+                    $('.errorMsgName').html('Name should be alphabet/alphabet+number and min length 3!');
                     $('.errorMsgName').css({'color':'red','font-size':'13px'}); 
                     /* Disabled submit button */
                     $(':input[type="submit"]').prop('disabled',true);
@@ -63,11 +54,11 @@
                     checkform();
                    
                 }
-//                console.log("top of function");
+
 
                 $('#gender').on('change',function(){
                 	var gender = $('#gender').val();
-                	if(gender == null)
+                	if(gender == '')
                 		{
                 			$('#gender').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
                 			$(':input[type="submit"]').prop('disabled',true);
@@ -85,11 +76,9 @@
             /** Password validation **/
             $('#password').css({'border':'1px solid #ced4da'});
                 $(function(){
-                    $('#password').on("keyup",()=>{
+                    $('#password').on("focusout",()=>{
                     var password = $('#password').val();
-//                    console.log("password=>"+password);
                     var regex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
-//                    console.log("regex=>"+password.match(regex));
                     if(password.match(regex) == null)
                     {
                         $('#password').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
@@ -108,20 +97,13 @@
                 });
                 });   
                 
-//                $('#gender').change(function(){
-//                	var gender = $('#gender').val();
-//                		console.log('this is gender');
-//                		console.log('userName=>'+userName+"email=>"+email+"password=>"+password+"dob=>"+dob+"gender=>"+gender);
-//                })
                 
                 /** Email validation **/
                 $('#email').css({'border':'1px solid #ced4da'});
                     $(function(){
-                        $('#email').on("keyup",()=>{
+                        $('#email').on("focusout",()=>{
                         var email = $('#email').val();
-//                        console.log("email=>"+email);
                         var regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-//                        console.log("regex=>"+password.match(regex));
                         if(!email.match(regex))
                         {
                             $('#email').css({'box-shadow':'0 0 5px rgba(240, 2, 2, 1)'});
@@ -146,7 +128,7 @@
             /** Date validation **/
             $('#dob').css({'border':'1px solid #ced4da'});
                 $(function(){
-                    $('#dob').on("keyup",()=>{
+                    $('#dob').on("focusout",()=>{
                     var dob = $('#dob').val();
 //                    console.log("dob=>"+dob);
                     var regex = /^(\d{4})-(\d{2})-(\d{2})$/;
@@ -182,15 +164,15 @@
         var formData = "name="+userName+"&email="+email+"&password="+password+"&dob="+dateOfBirth+"&gender="+gender;
         var url = "http://localhost:8080/Charityapp-api/DonorRegisterServlet?"+formData;
         $.getJSON(url,function(data){
-
-            //var response = JSON.parse(data);
         	var response = data;
         	console.log("response=>"+response);
-            if(response.errorMessage != null)
+            if(response.isStatus != true)
             {
             	$('#registerSuccess').css({'display':'none'});
             	$('#registerFailure').css({'display':'block'});
             	$('#errorMessage').html('Register is not success!');
+            	$('.errorEmail').css({'color':'red','font-size':'13px'}); 
+            	$('.errorEmail').html(response.errorMessage);
             } else{
             	$('#registerFailure').css({'display':'none'});
             	$('#registerSuccess').css({'display':'block'});
