@@ -25,14 +25,16 @@
                         <thead>
                             <tr>
                                 <th>Request Type</th>
-                                <th>Description</th>
+                                <!--<th>Description</th>-->
                                 <th>Amount<strong>(Rs)</strong></th>
                                 <th>Expire Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody id="listFundRequest">
-                           
+                           <tr>
+                           	<td colspan="4"><div class="text-danger text-center">No data found!</div></td>
+                           </tr>
                         </tbody>
                     </table>
 
@@ -42,7 +44,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                              <h5 class="modal-title text-center" id="exampleModalLabel"></h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -71,7 +73,14 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="request-type" class="col-form-label">Request Type</label>
-                                  <input type="text" class="form-control" id="fundRequestType">
+                                   <select name="requestType" id="fundRequestType" class="form-control">
+                                    <option value="">--SELECT--</option>
+                                    <option value="EDUCATION">Education</option>
+                                    <option value="FOOD">Food</option>
+                                    <option value="MEDICAL">Medical</option>
+                                    <option value="AGRICULTURE">Agriculture</option>
+                                    <option value="OTHERS">Others</option>
+                                </select>
                                 </div>
                                 <div class="form-group">
                                   <label for="amount" class="col-form-label">Amount<strong>(Rs)</strong></label>
@@ -112,13 +121,14 @@
                 let content = '';
                 for(data of res)
                 {
-                    let editBtn = "editBtn("+data.id+",'"+data.requestType+"',"+data.amount+","+data.expireDate.day+","+data.expireDate.month+","+data.expireDate.year+")";
+                    let editBtn = "editBtn("+data.id+",'"+data.requestType+"',"+data.amount+","+data.expireDate.day+","+data.expireDate.month+","+data.expireDate.year+",'"+data.description+"')";
+                   
                     content +='<tr><td>'+data.requestType+'</td>';
-                    content +='<td>'+data.description+'</td>';
+                    //content +='<td>'+data.description+'</td>';
                     content +='<td>'+data.amount+'</td>';
                     content +='<td>'+data.expireDate.day+'-'+data.expireDate.month+'-'+data.expireDate.year+'</td>';
                     content +='<td>'
-                    +'<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick='+editBtn+'>Update</button>'
+                    +'<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" onclick="'+editBtn+'">Update</button>'
                     +'</td></tr>';
                 }
                 $('#listFundRequest').html(content);
@@ -127,8 +137,10 @@
             console.log(fundRequestType);
         }
 
+       
+
         /* Edit  */
-        function editBtn(id,reqType,amt,day,month,year)
+        function editBtn(id,reqType,amt,day,month,year,desc)
         {
             console.log("id=>"+id);
             console.log("ReqType=>"+reqType);
@@ -145,7 +157,7 @@
                 var modal = $(this)
                 modal.find('.modal-title').text('Update fund request')
                 modal.find('.modal-body #fundRequestType').val(reqType)
-                modal.find('.modal-body #fundDescription').val('description for fund')
+                modal.find('.modal-body #fundDescription').val(desc)
                 modal.find('.modal-body #fundAmount').val(amt)
                 modal.find('.modal-body #fundExpireDate').val(year+"-"+month+"-"+day)
                 modal.find('.modal-body #fundRequestId').val(id)
@@ -176,9 +188,9 @@
             var amount = $('#fundAmount').val();
             var expireDate = $('#fundExpireDate').val();
             console.log("requestType=>"+requestType);
-            console.log("description=>"+requestType);
-            console.log("amount=>"+requestType);
-            console.log("expireDate=>"+requestType);
+            console.log("description=>"+description);
+            console.log("amount=>"+amount);
+            console.log("expireDate=>"+expireDate);
             var formData = "UpdateFundRequestServlet?requestType="+requestType+"&description="+description+"&expireDate="+expireDate+"&amount="+amount+"&id="+id;
             console.log(apiUrl+formData);
             $.getJSON(apiUrl+formData,(res)=>{

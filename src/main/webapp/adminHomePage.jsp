@@ -12,8 +12,8 @@
             <div class="card text-secondary bg-light">
                 <img class="card-img-top" src="asserts/css/images/contribute.jpg" alt="">
                 <div class="card-body">
-                  <h4 class="card-title">Rise Fund Request</h4>
-                  <p class="card-text">Demand some money, who ready to contribute</p>
+                  <h5 class="card-title">Rise Fund Request</h5>
+                  <p class="card-text">Demand money</p>
                   <a class="btn btn-outline-info" href="?pagePath=fundRequest.jsp">Go To</a>
                 </div>
               </div>
@@ -22,7 +22,7 @@
             <div class="card text-secondary bg-light">
                 <img class="card-img-top" src="asserts/css/images/donordetails.png" alt="">
                 <div class="card-body">
-                  <h4 class="card-title">List Donor</h4>
+                  <h5 class="card-title">List Donor</h5>
                   <p class="card-text">Donor details</p>
                   <a class="btn btn-outline-info" href="?pagePath=donorList.jsp">Go TO</a>
                 </div>
@@ -32,8 +32,8 @@
             <div class="card text-secondary bg-light">
                 <img class="card-img-top" src="asserts/css/images/update.jpg" alt="">
                 <div class="card-body">
-                  <h4 class="card-title">Update Request</h4>
-                  <p class="card-text">Update fund request</p>
+                  <h5 class="card-title">Update Fund Request</h5>
+                  <p class="card-text">Edit fund request</p>
                   <a class="btn btn-outline-info" href="?pagePath=updateFundRequest.jsp">Go To</a>
                 </div>
               </div>

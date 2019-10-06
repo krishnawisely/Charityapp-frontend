@@ -61,12 +61,15 @@
 		            var content = "";
 		            for(data of requestData)
 		            {
+		            	
+		            	
+		            	
 		            	content += '<tr><td>';
 		                content += data.requestType;
 		                content += '</td><td>';
 		                content += data.description;
 		                content += '</td><td>';
-		                content += data.amount
+		                content += data.amount;
 		                content += '</td><td>';
 		                content += data.expireDate.day+"-"+ data.expireDate.month+"-"+data.expireDate.year;
 		                content += '</td><td>';
@@ -74,10 +77,20 @@
 		                
 		                content += '</td><td>';
 		                var click = "donate('"+ data.id +"')";
+		                var desc = "showDescription('"+ data.description +"')";
 		                content += '<button class="btn btn-outline-success" onclick=' + click + '>Donate</button>';
+		                content += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="'+desc+'">More Details</button>';
 		                content += '</td></tr>';
 		            }
 		            console.log("content=>"+content);
 		            tbody.html(content);
 	        });
+	       
+	        
 	    }
+	  	 function showDescription(data)
+	        {
+	  		// alert(data);
+	        	console.log("Inside description!", data);
+	        	$('#description').html(data);
+	        }

@@ -30,7 +30,7 @@ function fundRequest()
                 console.log(data)
                 console.log('fund request success!');
                 $('#fundStatus').css({"display":"block"});
-                $('#successMsg').html('Transaction success!');
+                $('#successMsg').html('Fund raised successfully!');
             });
         }
         $(function(){
