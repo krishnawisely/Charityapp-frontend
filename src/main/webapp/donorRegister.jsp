@@ -58,7 +58,7 @@
                                     Birth Date
                                 </div>
                             </div>
-                            <input type="text" name="dob" id="dob" class="form-control" required/>
+                            <input pattern="(\d{4})(-)(\d{2})(-)(\d{2})" title="Date should be like YYYY-MM-DD" type="text" name="dob" id="dob" class="form-control" required/>
                         </div>
                         <p class="errorMsgDate"></p>
                     </div>

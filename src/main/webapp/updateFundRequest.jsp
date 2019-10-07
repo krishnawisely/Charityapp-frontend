@@ -66,14 +66,15 @@
 							</div>
                             
                             
-                              <form id="updateInput">
+                              <form id="" onsubmit="updateFundRequest()">
                                 <div class="form-group">
                                   <label for="request-id" class="col-form-label" style="display:none;">Id</label>
                                   <input type="text" class="form-control" id="fundRequestId" style="display:none">
                                 </div>
                                 <div class="form-group">
-                                  <label for="request-type" class="col-form-label">Request Type</label>
-                                   <select name="requestType" id="fundRequestType" class="form-control">
+                                <input type="text" class="form-control" id="fundRequestType1" disabled>
+                                  <label for="request-type" class="col-form-label">Request Type<i class="text-danger">*</i></label>
+                                   <select name="requestType" id="fundRequestType" class="form-control" required>
                                     <option value="">--SELECT--</option>
                                     <option value="EDUCATION">Education</option>
                                     <option value="FOOD">Food</option>
@@ -83,23 +84,24 @@
                                 </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="amount" class="col-form-label">Amount<strong>(Rs)</strong></label>
-                                  <input type="number" min="100" class="form-control" id="fundAmount">
+                                  <label for="amount" class="col-form-label">Amount<strong>(Rs)</strong><i class="text-danger">*</i></label>
+                                  <input type="number" min="100" class="form-control" id="fundAmount" pattern="(\d{3,9})(\.\d{1,2})?" title="Amount should be in the range of 100 rupeese - 10 crores and after decimal only two digits!" required>
                                 </div>
                                 <div class="form-group">
-                                  <label for="expire-date" class="col-form-label">Expire Date</label>
-                                  <input type="text" min="100" class="form-control" id="fundExpireDate">
+                                  <label for="expire-date" class="col-form-label">Expire Date<i class="text-danger">*</i></label>
+                                  <input type="text" class="form-control" id="fundExpireDate" pattern="(\d{4})(-)(\d{2})(-)(\d{2})" title="Date should be like YYYY-MM-DD" required>
                                 </div>
                                 <div class="form-group">
-                                  <label for="message-text" class="col-form-label">Description</label>
-                                  <textarea class="form-control" id="fundDescription"></textarea>
+                                  <label for="message-text" class="col-form-label">Description<i class="text-danger">*</i></label>
+                                  <textarea class="form-control" id="fundDescription" required></textarea>
                                 </div>
+                                <div class="modal-footer">
+	                              <button type="submit" class="btn btn-outline-info" id="updateBtn" onclick="">Update</button>
+	                       			<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+	                            </div>
                               </form>
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary" id="updateBtn" onclick="updateFundRequest()">Update</button>
-                            </div>
+                           
                           </div>
                         </div>
                       </div>
@@ -156,7 +158,7 @@
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                 var modal = $(this)
                 modal.find('.modal-title').text('Update fund request')
-                modal.find('.modal-body #fundRequestType').val(reqType)
+                modal.find('.modal-body #fundRequestType1').val(reqType)
                 modal.find('.modal-body #fundDescription').val(desc)
                 modal.find('.modal-body #fundAmount').val(amt)
                 modal.find('.modal-body #fundExpireDate').val(year+"-"+month+"-"+day)

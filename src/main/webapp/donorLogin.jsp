@@ -8,7 +8,7 @@
 				    <span aria-hidden="true">&times;</span>
 				  </button>
 			</div>
-           
+           <form onsubmit="donorLogin()">
             <h5 class="text-secondary" style="padding: 10px 0">Donor Login</h5>
             <div class="form-group">
                 <div class="input-group">
@@ -30,14 +30,16 @@
                     <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                 </div>
             </div>
-            <button onclick="donorLogin()" type="submit" class="btn btn-outline-secondary">Sign in</button>
+            <button onclick="" type="submit" class="btn btn-outline-secondary">Sign in</button>
             <p>New donor? <a href="?pagePath=donorRegister.jsp">Click here</a>.</p>
             <p><a href="#">Forgot Password</a></p>
+            </form>
         </div>
     </div>
     <script>
         function donorLogin()
         {
+            event.preventDefault();
             var email = $('#email').val();
             var password = $('#password').val();
             console.log('donor=>'+email+password);

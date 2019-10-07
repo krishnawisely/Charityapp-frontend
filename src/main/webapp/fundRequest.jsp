@@ -16,12 +16,12 @@
 				</div>
                 
                 <h5 class="bg-secondary text-light" style="padding:10px 0;margin-top:-20px;border-radius: 5px;box-shadow: 5px 8px 18px -8px rgba(0,0,0,0.5)">Fund Request</h5>
-                <form onsubmit="fundRequest()">
+                <form onsubmit="fundRequest()" name="fundrequest">
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Request Type
+                                Request Type<i class="text-danger">*</i>
                             </div>
                         </div>
                         <select id="requestType" class="form-control" required>
@@ -34,37 +34,38 @@
                         </select>
                     </div>
                 </div>
+               
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Description
+                                Amount<strong>(Rs)</strong><i class="text-danger">*</i>
                             </div>
                         </div>
-                        <input type="text" name="description" id="description" class="form-control" placeholder="Description" required>
+                        <input pattern="(\d{3,9})(\.\d{1,2})?" type="text" name="amount" id="amount" min="100" max="" class="form-control" placeholder="Amount" title="Amount should be in the range of 100 rupeese - 10 crores and after decimal only two digits!" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Amount<strong>(Rs)</strong>
+                                Expire date<i class="text-danger">*</i>
                             </div>
                         </div>
-                        <input type="number" name="amount" id="amount" min="1" class="form-control" placeholder="Amount" required>
+                        <input type="text" pattern="(\d{4})(-)(\d{2})(-)(\d{2})" title="Date should be like YYYY-MM-DD" name="expireDate" id="expireDate" class="form-control" placeholder="Expire date" required>
                     </div>
                 </div>
-                <div class="form-group">
+                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                Expire date
+                                Description<i class="text-danger">*</i>
                             </div>
                         </div>
-                        <input type="text" name="expireDate" id="expireDate" class="form-control" placeholder="Expire date" required>
+                        <textarea minlength="10" maxlength="200" title="Description" name="description" id="description" class="form-control" placeholder="Description" required></textarea>
                     </div>
                 </div>
-                <button onclick="" class="btn btn-outline-secondary">Submit</button>
+                <button type="submit" class="btn btn-outline-secondary">Submit</button>
                 <input type="reset" class="btn btn-outline-danger">
                 </form>
             </div>

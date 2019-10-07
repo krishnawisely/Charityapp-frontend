@@ -1,0 +1,41 @@
+
+    <div class="row justify-content-center">
+    	<div class="col-md-8">
+    		<h3 class="text-secondary text-center">List Funded Donors</h3>
+    	</div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Request Type</th>
+                        <th>Target Amount<strong>(Rs)</strong></th>
+                        <th>Funded Amount<strong>(Rs)</strong></th>
+                    </tr>
+                </thead>
+                <tbody class="" id="fundedDonor">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(function() { 
+            let apiUrl = "http://localhost:8080/Charityapp-api/ListFundedDonorServlet";
+            $.getJSON(apiUrl, (res)=>{
+                console.log(res);
+                let content = '';
+                for(let donor of res)
+                {
+                    content += '<tr><td>'+donor.name+'</td>';
+                    content += '<td>'+donor.email+'</td>';
+                    content += '<td>'+donor.fundRequest.requestType+'</td>';
+                    content += '<td>'+donor.fundRequest.amount+'</td>';
+                    content += '<td>'+donor.transaction.amount+'</td>';
+                    content += '</tr>';
+                }
+                $('#fundedDonor').html(content);
+            });
+         });    
+    </script>

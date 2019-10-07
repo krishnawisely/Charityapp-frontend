@@ -5,26 +5,21 @@
 	 			$('#dropdownId').html(donorData.name);
 	  	  	});
 	  	
-
-	  	
-	  	function donate(fundRequestId){
+	  	function donateMoney()
+	  	{
+	  		event.preventDefault();
+	  		var fundid = $('#fundid').val();
+	  		var amount = $('#fundamount').val();
 	  		/* Get donor details */
 			var data = localStorage.getItem('Logged_In_Donor');
 	  		 var donorData = JSON.parse(data);
 	  		 var donorId = donorData.id;
-			/* Get amount */
-	  		var amount = $("#amount_" + fundRequestId).val();
-	  		 
-	  	  	console.log("fund_req_id=>"+fundRequestId);
-	  	  	console.log("donor_id=>"+donorId);
-	  		console.log("amount=>"+amount);
-	
-	  		var formData = "id="+donorId+"&fundRequestId="+fundRequestId+"&amount="+amount;
+	  		alert('id=>'+fundid+"amount=>"+amount);
+	  		
+	  		var formData = "id="+donorId+"&fundRequestId="+fundid+"&amount="+amount;
 	  		var url = "http://localhost:8080/Charityapp-api/TransactionServlet?"+formData;
-
-
-
-			/* Get response form servlet */
+	  		
+	  		/* Get response form servlet */
 	  		if(amount > 0 && amount != null)
 	  			{
 			  		$.get(url,function(data){
@@ -32,18 +27,42 @@
 						 $(function(){
 						    	$('#transactionStatus').css({"display":"block"});
 						    	$('#errorStatus').css({"display":"none"});
-						    	$('#responseMessage').html("Transaction success");
+						    	$('#responseMessage').html("Donate success!Thank you for your contribution!");
+						    	$('#fundamount').css({'display':'none'});
+						    	$('#donatebtn').css({"display":"none"});
 						        });
 			  		});
 	  		
 	  			} 
 	  		else{
-	  			$('#errorStatus').css({"display":"block"});
-	  			$('#transactionStatus').css({"display":"none"});
+	  				$('#errorStatus').css({"display":"block"});
+	  				$('#transactionStatus').css({"display":"none"});
 	  				$('#errorMessage').html("Invalid amount!");
 	  				console.log("Invalid amount!");
 	  			}
+	  		
 	  	}
+	  	
+	  	function updateBtn(id,amount)
+	  	{
+	  		 $('#contributeModel').on('show.bs.modal', function (event) {
+	                var button = $(event.relatedTarget) // Button that triggered the modal
+	                var recipient = button.data('whatever') // Extract info from data-* attributes
+	                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+	                var modal = $(this)
+	                modal.find('.modal-title').text('Donate Fund')
+	                modal.find('.modal-body #fundid').val(id)
+	                modal.find('.modal-body #fundamount').val(amount)
+	  		 });
+	  		$('#fundamount').css({'display':'block'});
+	  		$('#transactionStatus').css({'display':'none'});
+	  		$('#errorStatus').css({'display':'none'});
+	  		$('#donatebtn').css({"display":"block"});
+	  		
+	  	}
+	  	
+	
 	  	
 	  	function listRequest()
 	    {
@@ -66,19 +85,21 @@
 		            	
 		            	content += '<tr><td>';
 		                content += data.requestType;
-		                content += '</td><td>';
-		                content += data.description;
+		                //content += '</td><td>';
+		                //content += data.description;
 		                content += '</td><td>';
 		                content += data.amount;
 		                content += '</td><td>';
 		                content += data.expireDate.day+"-"+ data.expireDate.month+"-"+data.expireDate.year;
 		                content += '</td><td>';
-		                content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="Enter amount"/>';
+		                //content += '<input type="number" id="amount_'+ data.id +'" class="form-control" min="1" placeholder="Enter amount"/>';
 		                
-		                content += '</td><td>';
-		                var click = "donate('"+ data.id +"')";
+		                //content += '</td><td>';
+		                //var click = "donate('"+ data.id +"')";
 		                var desc = "showDescription('"+ data.description +"')";
-		                content += '<button class="btn btn-outline-success" onclick=' + click + '>Donate</button>';
+		                var updateBtn = "updateBtn('"+data.id+"','"+data.amount+"')";
+		                //content += '<button class="btn btn-outline-success" onclick=' + click + '>Donate</button>';
+		                content += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contributeModel" onclick="'+updateBtn+'">Contribute</button>';
 		                content += '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="'+desc+'">More Details</button>';
 		                content += '</td></tr>';
 		            }

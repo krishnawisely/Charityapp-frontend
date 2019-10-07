@@ -6,6 +6,7 @@ $(function(){
 		maxDate: '+1Y',
 		dateFormat: 'yy-mm-dd'
 	});
+	
 })
 function fundRequest()
         {
